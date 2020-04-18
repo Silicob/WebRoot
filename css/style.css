@@ -21,3 +21,37 @@ footer {
     text-align: center;
     padding: 10px 40px;
 }
+
+
+#a {
+    background-color: cyan;
+    color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+#b {
+    color: green;
+    border-width: 2px;
+    border-style: solid;
+}
+#c {
+    background-color: lightyellow;
+    color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+#d {
+    background-color: pink;
+    color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.tab { margin-left: 40px; }
+
+.tab2 { margin-left: 80px; }
+
+#table-of-contents {
+    background-color: white;
+    color: black;
+}

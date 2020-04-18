@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html public lang="en">
+<head>
+    <title>Device Resources</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+//    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    /* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> */
+
+    <!-- Latest compiled JavaScript -->
+    /* <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> */
+
+</head>
+<body>
+
+<h1>Web Resources</h1>
+
+<div id="table-of-contents" class="container">
+    <strong>Table of Contents</strong>
+    <ul>
+        <li><a href=https://support.smartbear.com/testcomplete/docs/app-testing/mobile/common-tasks/sensors/getting-data.html id="#a">"Getting Data From Mobile Device Sensors"</a></li>
+        <li><a href=https://developer.android.com/guide/topics/sensors/sensors_overview.html id="#b">"Android sensor overview"</a></li>
+        <li><a href=https://fossbytes.com/which-smartphone-sensors-how-work/ id="#c">"Which Sensors Do I Have In My Smartphone? How Do They Work?"</a></li>
+        <li><a href=https://developer.apple.com/documentation/coremotion id="#d">Core Motion description on developer.apple.com</a></li>
+        <li><a href=../index.html" id="#e">Back to main page</a></li>
+    </ul>
+</div>
+
+<ol class="container">
+    <li class="list-inline" id="a">
+        <p>
+            <a href="https://support.smartbear.com/testcomplete/docs/app-testing/mobile/common-tasks/sensors/getting-data.html" id="#a">"Getting Data From Mobile Device Sensors"</a>
+        <p>
+            <em>What sensors are we provided with?</em><br /><br />
+            This page does not list specific sensors, but it shows how to access a complete list of sensors that a device has using software called TestComplete Android Agent.
+        </p>
+        <p>
+            <em>What do they do?</em><br /><br />
+            This page does not list specific sensors.
+        </p>
+        <div>
+            <em>How is it done?</em>
+            This site shows how to access a list of sensors using JavaScript/JScript, Python, VBScript, DelphiScript, and C++Script/C#Script.<br />
+            <br />
+            Here is the code for JScript:<br />
+            <br />
+            <code>
+                function ListSensors()<br />
+                {
+                <code class="tab">var sensor, i;<br /></code>
+                <br />
+                <code class="tab">Mobile.SetCurrent("Nexus 7");<br /></code>
+                <code class="tab">for (i = 0; i < Mobile.Device().SensorsCount; i++)<br /></code>
+                <code class="tab">{<br /></code>
+                <code class="tab2">sensor = Mobile.Device().Sensor(i);<br /></code>
+                <code class="tab2">Log.AppendFolder("Sensor " + i + ": " + sensor.Name);<br /></code>
+                <code class="tab2">Log.Message(sensor.Type);<br /></code>
+                <code class="tab2">Log.Message("Value0: " + sensor.Values.Value0);<br /></code>
+                <code class="tab2">Log.Message("Value1: " + sensor.Values.Value1);<br /></code>
+                <code class="tab2">Log.Message("Value2: " + sensor.Values.Value2);<br /></code>
+                <code class="tab2">Log.PopLogFolder();<br /></code>
+                <code class="tab">}<br /></code>
+                }
+            </code>
+        </div>
+        <p>
+            <em>Rating: 2/5. This doesn't provide a list of all possible sensors but shows how to get a list of sensors on a device.</em>
+        </p>
+    </li>
+    <br />
+    <li class="list-inline" id="b">
+        <p>
+            <a href="https://developer.android.com/guide/topics/sensors/sensors_overview.html">Android Sensor Overview</a><br />
+        <p>
+            <em>What sensors are we provided with? What do they do?</em></br></br>
+            According to this site, Android provides 3 categories of sensors: motion, environmental, and location.</br></br>
+            There are physical sensors and software sensors. According to the site, "The Android sensor framework lets you access many types of sensors. Some of these sensors are hardware-based and some are software-based. Hardware-based sensors are physical components built into a handset or tablet device. They derive their data by directly measuring specific environmental properties, such as acceleration, geomagnetic field strength, or angular change. Software-based sensors are not physical devices, although they mimic hardware-based sensors. Software-based sensors derive their data from one or more of the hardware-based sensors and are sometimes called virtual sensors or synthetic sensors. The linear acceleration sensor and the gravity sensor are examples of software-based sensors."</br></br>
+            Here is a table of types of sensors that is copied from this website with minor modifications:</br></br>
+        <p>
+            <em>Table 1.</em> Sensor types supported by the Android platform.
+        </p>
+        <table class="table table-striped">
+            <tr>
+                <th scope="col">Sensor</th>
+                <th scope="col">Type</th>
+                <th scope="col">Description</th>
+                <th scope="col">Common Uses</th>
+            </tr>
+            <tr>
+                <td><code>TYPE_ACCELEROMETER</code></td>
+                <td>Hardware</td>
+                <td>
+                    Measures the acceleration force in m/s<sup>2</sup> that is applied to a device on
+                    all three physical axes (x, y, and z), including the force of gravity.
+                </td>
+                <td>Motion detection (shake, tilt, etc.).</td>
+            </tr>
+            <tr>
+                <td><code>TYPE_AMBIENT_TEMPERATURE</code></td>
+                <td>Hardware</td>
+                <td>Measures the ambient room temperature in degrees Celsius (&deg;C).</td>
+                <td>Monitoring air temperatures.</td>
+            <tr>
+                <td><code>TYPE_GRAVITY</code></td>
+                <td>Software or Hardware</td>
+                <td>
+                    Measures the force of gravity in m/s<sup>2</sup> that is applied to a device on all
+                    three physical axes (x, y, z).
+                </td>
+                <td>Motion detection (shake, tilt, etc.).</td>
+            </tr>
+            <tr>
+                <td><code>TYPE_GYROSCOPE</code></td>
+                <td>Hardware</td>
+                <td>
+                    Measures a device's rate of rotation in rad/s around each of the three
+                    physical axes
+                    (x, y, and z).
+                </td>
+                <td>Rotation detection (spin, turn, etc.).</td>
+            </tr>
+            <tr>
+                <td><code>TYPE_LIGHT</code></td>
+                <td>Hardware</td>
+                <td>Measures the ambient light level (illumination) in lx.</td>
+                <td>Controlling screen brightness.</td>
+            </tr>
+            <tr>
+                <td><code>TYPE_LINEAR_ACCELERATION</code></td>
+                <td>Software or Hardware</td>
+                <td>
+                    Measures the acceleration force in m/s<sup>2</sup> that is
+                    applied to a device on
+                    all three physical axes (x, y, and z), excluding the force of gravity.
+                </td>
+                <td>Monitoring acceleration along a single axis.</td>
+            </tr>
+            <tr>
+                <td><code>TYPE_MAGNETIC_FIELD</code></td>
+                <td>Hardware</td>
+                <td>
+                    Measures the ambient geomagnetic field for all three physical axes (x, y, z) in
+                    &mu;T.
+                </td>
+                <td>Creating a compass.</td>
+            </tr>
+            <tr>
+                <td><code>TYPE_ORIENTATION</code></td>
+                <td>Software</td>
+                <td>
+                    Measures degrees of rotation that a device makes around all three physical axes (x, y, z).
+                    As of API level 3 you can obtain the inclination matrix and rotation matrix for
+                    a device by using the gravity sensor and the geomagnetic field sensor in conjunction with
+                    the <code>getRotationMatrix()</code>
+                    method.
+                </td>
+                <td>Determining device position.</td>
+            </tr>
+            <tr>
+                <td><code>TYPE_PRESSURE</code></td>
+                <td>Hardware</td>
+                <td>Measures the ambient air pressure in hPa or mbar.</td>
+                <td>Monitoring air pressure changes.</td>
+            </tr>
+            <tr>
+                <td><code>TYPE_PROXIMITY</code></td>
+                <td>Hardware</td>
+                <td>
+                    Measures the proximity of an object in cm relative to the view screen of a
+                    device. This sensor is typically used to determine whether a handset is being held up to
+                    a person's ear.
+                </td>
+                <td>Phone position during a call.</td>
+            </tr>
+            <tr>
+                <td><code>TYPE_RELATIVE_HUMIDITY</code></td>
+                <td>Hardware</td>
+                <td>Measures the relative ambient humidity in percent (%).</td>
+                <td>Monitoring dewpoint, absolute, and relative humidity.</td>
+            </tr>
+            <tr>
+                <td><code>TYPE_ROTATION_VECTOR</a></code></td>
+                <td>Software or Hardware</td>
+                <td>
+                    Measures the orientation of a device by providing the three elements of the device's
+                    rotation vector.
+                </td>
+                <td>Motion detection and rotation detection.</td>
+            </tr>
+            <tr>
+                <td><code>TYPE_TEMPERATURE</code></td>
+                <td>Hardware</td>
+                <td>
+                    Measures the temperature of the device in degrees Celsius (&deg;C). This sensor
+                    implementation varies across devices and
+                    this sensor was replaced with the <code>TYPE_AMBIENT_TEMPERATURE</code> sensor in
+                    API Level 14
+                </td>
+                <td>Monitoring temperatures.</td>
+            </tr>
+        </table>
+        </p>
+        <div>
+            <em>How is it done?</em><br /><br />
+            <div>Android sensors are accessed through the "Android sensor framework" which is part of the package "android.hardware". The following classes and interfaces are included.</div>
+            <ul>
+                <li>SensorManager: creates an instance of a sensor and can be used to get information about a sensor.</li>
+                <li>Sensor: create instances of individual sensors and list their capabilities</li>
+                <li>SensorEvent: these are created by the system with information including the type of sensor that generated an event, the data accuracy, the raw data, and the event timestamp.</li>
+                <li>SensorEventListener: this interface can be used "to create two callback methods that receive notifications (sensor events) when sensor values change or when sensor accuracy changes".</li>
+            </ul>
+        </div>
+        <p>
+            <em>Rating: 5/5. There is a lot of information on this site.</em>
+        </p>
+    </li>
+    <br />
+    <li class="list-inline" id="c">
+        <p>
+            <a href="https://fossbytes.com/which-smartphone-sensors-how-work/">"Which Sensors Do I Have In My Smartphone? How Do They Work?"</a><br />
+            <div>
+                <em>What sensors are we provided with? What do they do?</em>
+        <ul>
+            <li>
+                        Accelerometer
+            <p>"An accelerometer detects acceleration, vibration, and tilt to determine movement and exact orientation along the three axes. Apps use this smartphone sensor to determine whether your phone is in portrait or landscape orientation. <br />
+                It can also tell if your phone screen is facing upward or downward. The accelerometer can also detect how fast your phone is moving in any linear direction."
+            </p>
+        </li>
+            <li>
+                Gyroscope
+                <p>"Gyroscope also provides orientation details and direction like up/down and left/right but with greater precision like how much the device is tilted. This is where it differs from accelerometer — gyroscope can measure rotation too but the former cannot."</p>
+            </li>
+            <li>
+                Magnetometer
+                <p>"Our smartphones are equipped with magnetometer which we commonly recognize as a compass. It can detect magnetic fields, so the compass app in phones uses this smartphone sensor to point at the planet’s north pole."</p>
+            </li>
+            <li>
+                GPS
+                <p>"Global Positioning System (GPS) units in smartphone communicate with the satellites to determine our precise location on Earth. The GPS technology doesn’t actually use internet data this is why we can find our location on maps even after losing the signals, but the map itself is blurry as it requires internet to load the details — this is how offline map works. GPS is used in all location-based apps like Uber and Google Maps."</p>
+            </li>
+            <li>
+                Proximity Sensor
+                <p>"A proximity sensor makes use of an infrared LED and IR light detector to find out how close the phone is to an outside object. It used while making calls and when the phone is held to the face to make or receive a call, the sensor detects it and disables the touchscreen display to avoid unintended input through the skin."</p>
+            </li>
+            <li>
+                Ambient Light Sensor
+                <p>"The light sensor detects the lighting levels in the vicinity to adjust the display brightness accordingly. It is used in Automatic Brightness Adjuster to decrease or increase the brightness of the smartphone screen based on the availability of light."</p>
+            </li>
+            <li>
+                Microphone
+                <p>"The microphone is basically a sound sensor that detects and measures the loudness of sound. While there are different types of microphone sensors available, smartphones generally use micro-sized electret microphones."</p>
+            </li>
+            <li>
+                Touchscreen Sensors
+                <p>"The smartphone sensors in a touchscreen have an electrical current passing through them at all times and touching the screen causes a change in the signals. This change acts as input for the device. Before Apple introduced the capacitive touchscreen, resistive screens were used in the display. But nowadays, the capacitive screen is used in almost all smartphones."</p>
+            </li>
+            <li>
+                Fingerprint Sensor
+                <p>"Gone are the days of memorizing passwords and patterns to unlock your phone as many users prefer using the fingerprint scanner these days. Fingerprint sensor enables biometric verification to secure many smartphones today. It is a capacitive scanner that records your fingerprint electrically."</p>
+            </li>
+            <li>
+                Pedometer
+                <p>"The pedometer is used for counting steps, and fitness tracker makes use of this sensor to count the number of steps you take. Pedometers generally use the values generated by the accelerometer to monitor your movements like running or walking."</p>
+            </li>
+            <li>
+                Barcode/QR Code sensors
+                <p>"Most of the smartphones have barcode sensors that can read a barcode by detecting the reflected light from the code. It generates an analog signal with varying voltage that represents the barcode. This analog signal is then converted to a digital one and finally decoded to reveal the information in it. Barcode sensors are useful in scanning the barcodes products or QR codes."</p>
+            </li>
+            <li>
+                Barometer
+                <p>"There are many high-end Android phones like Pixel and iPhones that include a barometer in their hardware. The barometer measures the air pressure, so it is quite useful in detecting weather changes and in calculating the altitude you’re at."</p>
+            </li>
+            <li>
+                Heart Rate Sensor
+                <p>"Next up is the heart rate sensor that measures heartbeat with the help of LED and optical sensors. The LED emits light towards the skin, and this smartphone sensor looks for the light waves reflected by it."</p>
+            </li>
+            <li>
+                Thermometer
+                <p>
+                    "Every smartphone comes with an inbuilt thermometer for monitoring the temperature inside the device and battery. In case a component starts overheating, the system shuts down itself to prevent any damage.<br />
+                    However, some handsets come with additional thermometers to measure ambient temperature. If you can recall, the Samsung Galaxy S4 bragged of thermometer that can measure temperature. Such thermometer sensors can be used by apps to detect your room temperature."
+                </p>
+            </li>
+            <li>
+                Air Humidity Sensor
+                <p>"Now that we are talking about Galaxy S4 let’s discuss the Air Humidity sensor as well. S4 was the first smartphone to incorporate an air humidity sensor. It could measure the humidity in the air, and the data collected by it would tell the user whether the given air temperature and humidity are optimum or not. But again, this type of sensor is used by selected handsets only."</p>
+            </li>
+            <li>
+                Geiger Counter
+                <p>"Now, this is one smartphone sensor that you should not expect to find in common devices. In fact, there is only one phone that supports it – the Sharp Pantone 5. This handset has been released in Japan only. The Geiger Counter in it can measure the current radiation level in the area."</p>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <em>How is it done?</em><br /><br />
+        <p class="tab">This article talks about how the hardware works but not about how to access the sensors from software.</p>
+    </div>
+    <br />
+    <div>
+        <em>Rating:3/5. This is an interesting site for the descriptions of the hardware.</em>
+    </div>
+    </li>
+    <br />
+    <li class="list-inline" id="d">
+        <p>
+            <a href="https://developer.apple.com/documentation/coremotion">Core Motion description on developer.apple.com</a><br />
+        <p>
+            <em>What sensors are we provided with?</em><br />
+        <p class="tab">Accelerometers, gyroscopes, pedometer, magnetometer, and barometer</p>
+        </p>
+        <div>
+            <em>What do they do? How is it done?</em>
+            <ul>
+                <li>
+                    Device Motion: "Deliver acceleration, attitude, rotation, and magnetic field data that is adjusted for gravity and other forms of bias."<br />
+                    class CMDeviceMotion: "Encapsulated measurements of the attitude, rotation rate, and acceleration of a device."<br />
+                    class CMAttitude: "The device’s orientation relative to a known frame of reference at a point in time."<br />
+                </li>
+                <li>
+                    Accelrometer: "Deliver accelerometer data for all three axes of the device."<br />
+                    class CMAccelerometerData: "A data sample from the device's three accelerometers."<br />
+                    class CMRecordedAccelerometerData: "A single piece of accelerometer data that was recorded by the device."<br />
+                    class CMSensorRecorder: "The gathering and retrieval of accelerometer data from a device."<br />
+                    class CMSensorDataList: "A list of the accelerometer data recorded by the system."<br />
+                </li>
+                <li>
+                    Gyroscopes: "Deliver the raw gyroscope data." <br />
+                    class CMGyroData: "A single measurement of the device’s rotation rate." <br />
+                </li>
+                <li>
+                    Pedometer: "Provide step-counting data from the built-in motion processor."<br />
+                    class CMPedometer: "An object for fetching the system-generated live walking data." <br />
+                    class CMPedometerData: "Information about the distance traveled by a user on foot." <br />
+                    class CMPedometerEvent: "A change in the user's pedestrian activity." <br />
+                </li>
+                <li>
+                    Magnetometer: "Provide compass-level orientation data and raw magnetometer data."<br />
+                    class CMMagnetometerData: "Measurements of the Earth's magnetic field relative to the device."
+                </li>
+                <li>
+                    Altitude: "Provide altitude data based on barometric sensor information."<br />
+                    class CMAltimeter: "An object that initiates the delivery of altitude-related changes."<br />
+                    class CMAltitudeData: "Data for a recorded change in altitude."<br />
+                </li>
+                <li>
+                    Historical data: "Deliver recorded motion events to help you analyze movement patterns."<br />
+                    class CMMotionActivityManager: "An object that manages access to the motion data stored by the device."<br />
+                    class CMMotionActivity: "The data for a single motion update event."<br />
+                </li>
+                <li>
+                    Movement Disorder Manager: "records and measures tremors."<br />
+                    class CMMovementDisorderManager: "A manager for recording and querying movement disorders."<br />
+                    class CMTremorResult: "A result object that contains data about the presence and strength of tremors during a one-minute interval.<br />
+                    class CMDyskineticSymptomResult: 'A result object that contains data about the likely presence of dyskinetic symptoms during a one-minute interval.<br />
+                </li>
+            </ul>
+        </div>
+        <br />
+        <p>
+            <em>Rating:3/5. This is less comprehensive than the information on the Android developers site. I could not find a comprehensive list of iOS sensors on the Apple developer website.</em>
+        </p>
+    </li>
+</ol>
+</body>
+</html>
