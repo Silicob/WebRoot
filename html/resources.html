@@ -38,55 +38,48 @@
 <ol class="container">
     <li class="list-inline" id="a">
         <p>
-            <a href="https://support.smartbear.com/testcomplete/docs/app-testing/mobile/common-tasks/sensors/getting-data.html" id="#a">"Getting Data From Mobile Device Sensors"</a>
-        <p>
-            <em>What sensors are we provided with?</em><br /><br />
-            This page does not list specific sensors, but it shows how to access a complete list of sensors that a device has using software called TestComplete Android Agent.
-        </p>
-        <p>
-            <em>What do they do?</em><br /><br />
-            This page does not list specific sensors.
-        </p>
+            <a href="https://support.smartbear.com/testcomplete/docs/app-testing/mobile/common-tasks/sensors/getting-data.html" id="#a">"Getting Data From Mobile Device Sensors"</a></p>
+        
+        <em>What sensors are we provided with?</em><br /><br />
+            <p class="tab">This page does not list specific sensors, but it shows how to access a complete list of sensors that a device has using software called TestComplete Android Agent.</p>
+        <em>What do they do?</em><br /><br />
+            <p class="tab">This page does not list specific sensors.</p>
         <div>
-            <em>How is it done?</em>
-            This site shows how to access a list of sensors using JavaScript/JScript, Python, VBScript, DelphiScript, and C++Script/C#Script.<br />
-            <br />
-            Here is the code for JScript:<br />
-            <br />
-            <code>
-                function ListSensors()<br />
-                {
-                <code class="tab">var sensor, i;<br /></code>
+            <em>How is it done?</em><br /><br />
+            <p class="tab">This site shows how to access a list of sensors using JavaScript/JScript, Python, VBScript, DelphiScript, and C++Script/C#Script.</p>
                 <br />
-                <code class="tab">Mobile.SetCurrent("Nexus 7");<br /></code>
-                <code class="tab">for (i = 0; i < Mobile.Device().SensorsCount; i++)<br /></code>
-                <code class="tab">{<br /></code>
-                <code class="tab2">sensor = Mobile.Device().Sensor(i);<br /></code>
-                <code class="tab2">Log.AppendFolder("Sensor " + i + ": " + sensor.Name);<br /></code>
-                <code class="tab2">Log.Message(sensor.Type);<br /></code>
-                <code class="tab2">Log.Message("Value0: " + sensor.Values.Value0);<br /></code>
-                <code class="tab2">Log.Message("Value1: " + sensor.Values.Value1);<br /></code>
-                <code class="tab2">Log.Message("Value2: " + sensor.Values.Value2);<br /></code>
-                <code class="tab2">Log.PopLogFolder();<br /></code>
-                <code class="tab">}<br /></code>
-                }
-            </code>
+                <p class="tab">Here is the code for JScript:<br /></p>
+                <br />
+                <code class="tab">function ListSensors()</code><br />
+                <code class="tab">{</code><br />
+                    <code class="tab2">var sensor, i;<br /></code>
+                    <br />
+                    <code class="tab2">Mobile.SetCurrent("Nexus 7");<br /></code>
+                    <code class="tab2">for (i = 0; i < Mobile.Device().SensorsCount; i++)<br /></code>
+                    <code class="tab3">{<br /></code>
+                    <code class="tab3">sensor = Mobile.Device().Sensor(i);<br /></code>
+                    <code class="tab3">Log.AppendFolder("Sensor " + i + ": " + sensor.Name);<br /></code>
+                    <code class="tab3">Log.Message(sensor.Type);<br /></code>
+                    <code class="tab3">Log.Message("Value0: " + sensor.Values.Value0);<br /></code>
+                    <code class="tab3">Log.Message("Value1: " + sensor.Values.Value1);<br /></code>
+                    <code class="tab3">Log.Message("Value2: " + sensor.Values.Value2);<br /></code>
+                    <code class="tab3">Log.PopLogFolder();<br /></code>
+                    <code class="tab2">}<br /></code>
+                <code class="tab">}</code>
         </div>
-	<br />
-        <p>
-            <em>Rating: 2/5. This doesn't provide a list of all possible sensors but shows how to get a list of sensors on a device.</em>
-        </p>
+        <br />
+        <em>Rating:</em><br /><br />
+        <p class="tab"> 2/5. This doesn't provide a list of all possible sensors but shows how to get a list of sensors on a device.</p>
     </li>
-    <br />
     <li class="list-inline" id="b">
         <p>
             <a href="https://developer.android.com/guide/topics/sensors/sensors_overview.html">Android Sensor Overview</a>
 	</p><br />
         <p>
-            <em>What sensors are we provided with? What do they do?</em></br></br>
-            According to this site, Android provides 3 categories of sensors: motion, environmental, and location.</br></br>
-            There are physical sensors and software sensors. According to the site, "The Android sensor framework lets you access many types of sensors. Some of these sensors are hardware-based and some are software-based. Hardware-based sensors are physical components built into a handset or tablet device. They derive their data by directly measuring specific environmental properties, such as acceleration, geomagnetic field strength, or angular change. Software-based sensors are not physical devices, although they mimic hardware-based sensors. Software-based sensors derive their data from one or more of the hardware-based sensors and are sometimes called virtual sensors or synthetic sensors. The linear acceleration sensor and the gravity sensor are examples of software-based sensors."</br></br>
-            Here is a table of types of sensors that is copied from this website with minor modifications:</br></br>
+            <em>What sensors are we provided with? What do they do?</em><br /><br />
+            <p class="tab">According to this site, Android provides 3 categories of sensors: motion, environmental, and location.<br /><br />
+            There are physical sensors and software sensors. According to the site, "The Android sensor framework lets you access many types of sensors. Some of these sensors are hardware-based and some are software-based. Hardware-based sensors are physical components built into a handset or tablet device. They derive their data by directly measuring specific environmental properties, such as acceleration, geomagnetic field strength, or angular change. Software-based sensors are not physical devices, although they mimic hardware-based sensors. Software-based sensors derive their data from one or more of the hardware-based sensors and are sometimes called virtual sensors or synthetic sensors. The linear acceleration sensor and the gravity sensor are examples of software-based sensors."<br /><br />
+            Here is a table of types of sensors that is copied from this website with minor modifications:</p><br />
         <p>
             <em>Table 1.</em> Sensor types supported by the Android platform.
         </p>
@@ -190,7 +183,7 @@
                 <td>Monitoring dewpoint, absolute, and relative humidity.</td>
             </tr>
             <tr>
-                <td><code>TYPE_ROTATION_VECTOR</a></code></td>
+                <td><code>TYPE_ROTATION_VECTOR</code></td>
                 <td>Software or Hardware</td>
                 <td>
                     Measures the orientation of a device by providing the three elements of the device's
@@ -210,11 +203,10 @@
                 <td>Monitoring temperatures.</td>
             </tr>
         </table>
-        </p>
         <div>
             <em>How is it done?</em><br /><br />
-            <div>Android sensors are accessed through the "Android sensor framework" which is part of the package "android.hardware". The following classes and interfaces are included.</div>
-            <ul>
+            <div class="tab">Android sensors are accessed through the "Android sensor framework" which is part of the package "android.hardware". The following classes and interfaces are included.</div>
+            <ul class="tab">
                 <li>SensorManager: creates an instance of a sensor and can be used to get information about a sensor.</li>
                 <li>Sensor: create instances of individual sensors and list their capabilities</li>
                 <li>SensorEvent: these are created by the system with information including the type of sensor that generated an event, the data accuracy, the raw data, and the event timestamp.</li>
@@ -222,11 +214,9 @@
             </ul>
         </div>
 	<br />
-        <p>
-            <em>Rating: 5/5. There is a lot of information on this site.</em>
-        </p>
+        <em>Rating:</em><br /><br />
+        <p class="tab"> 5/5. There is a lot of information on this site.</p>
     </li>
-    <br />
     <li class="list-inline" id="c">
         <p>
             <a href="https://fossbytes.com/which-smartphone-sensors-how-work/">"Which Sensors Do I Have In My Smartphone? How Do They Work?"</a></p>
@@ -309,20 +299,19 @@
         <p class="tab">This article talks about how the hardware works but not about how to access the sensors from software.</p>
     </div>
     <div>
-        <em>Rating:3/5. This is an interesting site for the descriptions of the hardware.</em>
+        <em>Rating:</em><br /><br />
+        <p class="tab">4/5. This is an interesting site for the descriptions of the hardware.</p>
     </div>
 	<br />
     </li>
-    <br />
     <li class="list-inline" id="d">
         <p>
             <a href="https://developer.apple.com/documentation/coremotion">Core Motion description on developer.apple.com</a><br />
         <p>
-            <em>What sensors are we provided with?</em><br /><br />
+            <em>What sensors are we provided with?</em><br />
         <p class="tab">Accelerometers, gyroscopes, pedometer, magnetometer, and barometer</p>
-        </p>
         <div>
-            <em>What do they do? How is it done?</em>
+            <em>What do they do? How is it done?</em><br /><br />
             <ul>
                 <li>
                     Device Motion: "Deliver acceleration, attitude, rotation, and magnetic field data that is adjusted for gravity and other forms of bias."<br />
@@ -369,10 +358,9 @@
             </ul>
         </div>
         <br />
-        <p>
-            <em>Rating:3/5. This is less comprehensive than the information on the Android developers site. I could not find a comprehensive list of iOS sensors on the Apple developer website.</em>
-        </p>
+            <em>Rating:</em><br /><br />
+            <p class="tab">3/5. This is less comprehensive than the information on the Android developers site. I could not find a comprehensive list of iOS sensors on the Apple developer website.</p>
+        <br />
     </li>
 </ol>
 </body>
-</html>
